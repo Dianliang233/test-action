@@ -39,4 +39,7 @@ jobs:
       - name: checkout repository
         uses: actions/checkout@v4
       - name: lol2
-        run: echo ${{ needs.properties.outputs.snapshot == 'true' }}
+        run: |
+          echo ${{ needs.properties.outputs.snapshot }}
+          echo ${{ needs.properties.outputs.minecraft_version }}
+          echo "Hey Wiki ${{ github.ref_name }} for Minecraft ${{ needs.properties.outputs.minecraft_version }} with ${{ matrix.loader.formatted }}"
